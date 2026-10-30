@@ -65,10 +65,8 @@ El proyecto está hecho con tecnologías web nativas. No usa framework, paquetes
 
 ## 🚀 Cómo abrirlo
 
-1. Descargá el proyecto o cloná el repositorio.
-2. Abrí `index.html` en un navegador moderno.
-
-No hace falta instalar dependencias ni configurar variables de entorno.
+- **Sitio publicado:** [ValoVibes · Grupo 14](https://trabajo-practico-nro3-grupal-frontend.vercel.app/)
+- **En tu computadora:** descargá el proyecto y abrí `index.html` en un navegador moderno.
 
 ## 📁 Estructura del proyecto
 
@@ -121,7 +119,7 @@ Revisa la lectura en desktop y móvil. Detecta exceso de rótulos pequeños y re
 
 Codex recibió la consigna del TP3 y la asignación de **ValoVibes, grupo 14, S12-C**. A partir de ese material, el agente revisó las sentencias, propuso los recorridos, generó los archivos del sitio e incorporó los cambios solicitados durante las revisiones. El grupo aportó la dirección del proyecto, indicó qué aspectos quería mejorar y evaluó cada resultado para orientar la siguiente iteración.
 
-La distribución de roles cubre coordinación y revisión general, análisis de R5, análisis de R6, revisión visual y de navegación, y documentación. La revisión cruzada simulada muestra cómo registrar una observación y una mejora concreta.
+La distribución de roles cubre coordinación y revisión general, análisis de R5, análisis de R6, revisión visual y de navegación, y documentación. La revisión cruzada muestra cómo registrar una observación y una mejora concreta.
 
 ### Evidencia de iteración
 
