@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#090d18">
+    <meta name="description" content="Dos propuestas de moderación y búsqueda segura para ValoVibes, grupo 14 del IFTS 29.">
+    <title>ValoVibes — Moderación y espera | IFTS 29</title>
+    <link rel="icon" type="image/png" href="assets/valovibes-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="ValoVibes, inicio">
+        <img src="assets/valovibes-logo.png" alt="Logo original de ValoVibes: un oso gamer con auriculares y un rifle">
+        <span>VALO<span class="brand-accent">VIBES</span><small>IFTS 29 · GRUPO 14</small></span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="#propuesta">Proyecto</a>
+        <a href="#flujo-moderacion">Moderación</a>
+        <a href="#flujo-busqueda">Búsqueda</a>
+      </nav>
+      <span class="group-pill"><span class="status-dot"></span> IFTS 29 · GRUPO 14</span>
+    </header>
+
+    <main id="contenido">
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">Jugar en equipo<br>también es <span>cuidar<br>la partida.</span></h1>
+          <p class="hero-intro">Dos reglas, dos recorridos. Una propuesta para que las partidas tengan un espacio seguro y cada jugador encuentre su próximo equipo.</p>
+          <a class="hero-link" href="#propuesta">Explorar las propuestas <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v10m0 0 4-4m-4 4-4-4"/></svg></a>
+        </div>
+        <div class="hero-art" aria-label="Identidad de ValoVibes">
+          <svg class="arena-map" viewBox="0 0 520 430" aria-hidden="true">
+            <path class="map-edge" d="M39 89 161 29l103 38 106-17 112 71-25 112 32 82-104 71-113-34-99 40-123-78 23-108z"/>
+            <path class="map-room" d="m93 109 75-39 64 24-11 74-66 34-65-28zM273 73l84-13 49 50-13 73-91 15-43-53zM95 234l70-40 75 34-8 87-78 48-70-53zM275 223l77-32 70 38-12 78-71 43-74-31z"/>
+            <path class="map-wall" d="m168 70 22-36m42 60 41 28m-118 81 7 52m78 38 35-17m120-194 38-25m-19 108 48 31m-68 46 27 31m-36 90 23 41m-140-39 7 53M95 109 61 91m100 279-42 28"/>
+            <path class="map-route" d="M55 313c45 10 57-76 106-90s63 42 101 24 56-91 116-67 66 103 98 94"/>
+            <path class="map-route-light" d="M55 313c45 10 57-76 106-90s63 42 101 24 56-91 116-67 66 103 98 94"/>
+            <circle class="map-node map-node-start" cx="55" cy="313" r="8"/><circle class="map-node map-node-end" cx="476" cy="274" r="8"/>
+            <path class="map-cross" d="M436 76v22m-11-11h22M81 61v18m-9-9h18"/>
+            <text x="112" y="137">A</text><text x="316" y="124">B</text><text x="321" y="275">C</text>
+          </svg>
+          <div class="logo-frame"><img src="assets/valovibes-logo.png" alt=""></div>
+        </div>
+      </section>
+
+      <section class="intro section-shell" id="propuesta" aria-labelledby="intro-title">
+        <div class="intro-layout">
+          <div><h2 id="intro-title">Encontrá tu equipo.<br><span>Jugá mejor.</span></h2></div>
+          <div class="intro-description"><p class="lead">ValoVibes conecta jugadores de Valorant con compañeros compatibles y coordina invitaciones.</p><div class="origin-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M8 6h10v10"/></svg><span>Startup creada por estudiantes del <strong>IFTS 16</strong>.</span></div></div>
+        </div>
+        <div class="rule-index"><a href="#flujo-moderacion"><span class="rule-index-code">R5</span><span><strong>Moderación humana</strong></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5"/></svg></a><a href="#flujo-busqueda"><span class="rule-index-code">R6</span><span><strong>Búsqueda con filtros propios</strong></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5"/></svg></a></div>
+      </section>
+
+      <section class="flow-section section-shell" id="flujo-moderacion" aria-labelledby="moderacion-title">
+        <div class="flow-heading"><div><h2 id="moderacion-title">Pausa automática.<br><span>Decisión humana.</span></h2><p class="flow-type"><span class="rule-chip">R5</span> MODERACIÓN Y ESPERA</p></div><p class="flow-summary">Ante un reporte grave pendiente, la sesión queda en pausa.</p></div>
+        <article class="flow-card flow-card--moderation" aria-label="Diagrama del flujo de moderación para la sentencia R5">
+          <div class="flow-card-head"><span>RECORRIDO 01 <i>—</i> SESIÓN REPORTADA</span><span class="flow-card-id">R5 / S12-C</span></div>
+          <div class="flowchart">
+            <div class="flow-step start-step"><span class="node-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><div><small>INICIO</small><strong>Se recibe un reporte<br>sobre una sesión</strong></div><span class="step-number">01</span></div>
+            <div class="connector"><span></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v10m0 0 4-4m-4 4-4-4"/></svg></div>
+            <div class="flow-step input-step"><span class="node-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h9"/><circle cx="18" cy="17" r="3"/></svg></span><div><small>DATOS DE ENTRADA</small><strong>Sesión, gravedad del reporte y estado de revisión</strong></div><span class="step-number">02</span></div>
+            <div class="connector"><span></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v10m0 0 4-4m-4 4-4-4"/></svg></div>
+            <div class="decision-wrap"><div class="decision"><small>DECISIÓN</small><strong>¿Hay un reporte grave<br>pendiente de revisión?</strong></div></div>
+            <div class="branch-labels"><span>SÍ <i>· condición cumplida</i></span><span>NO <i>· condición no cumplida</i></span></div>
+            <div class="branches">
+              <div class="branch yes-branch"><div class="branch-connector"></div><div class="branch-card"><span class="branch-tag">SÍ · Proteger la sesión</span><div class="branch-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14m8-14v14"/></svg></span><div><small></small><strong>Pausar nuevas invitaciones e incorporaciones</strong></div></div><div class="branch-divider"></div><div class="branch-action human-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.5 3.1-5.2 7-5.2s6.2 1.7 7 5.2"/></svg></span><div><small></small><strong>Moderación humana</strong><p>Una persona revisa el reporte. El sistema no aplica sanciones.</p></div></div><span class="outcome">RESULTADO · SESIÓN EN ESPERA DE REVISIÓN</span></div></div>
+              <div class="branch no-branch"><div class="branch-connector"></div><div class="branch-card"><span class="branch-tag muted-tag">NO · Continuar el flujo</span><div class="branch-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><div><small>CONTINUIDAD PROPUESTA</small><strong>La sesión sigue su recorrido habitual</strong><p>La sentencia no define este caso; la continuidad es una decisión de diseño.</p></div></div><span class="outcome">RESULTADO · SIN BLOQUEO POR ESTA REGLA</span></div></div>
+            </div>
+          </div>
+          <details class="flow-details"><summary><span>Ver detalle de R5</span><span class="details-toggle" aria-hidden="true">+</span></summary><div class="details-content"><div><h3>Qué necesita</h3><p>Identificador de la sesión, nivel del reporte y confirmación de que todavía está pendiente de revisión.</p></div><div><h3>Si cumple</h3><p>Se detienen nuevas invitaciones e incorporaciones y el reporte se deriva a moderación humana. Una sanción nunca se resuelve automáticamente.</p></div><div><h3>Si no cumple</h3><p>Ejemplo: reporte pendiente pero no grave. La sentencia no define la respuesta; esta propuesta deja que la sesión siga el recorrido habitual bajo las demás reglas.</p></div><div class="detail-callout"><strong>Decisión del equipo</strong><span>La continuidad del flujo habitual es una alternativa de diseño para el “no”; la sentencia sólo establece qué hacer cuando la condición se cumple.</span></div></div></details>
+        </article>
+        <div class="original-rule"><span class="rule-label">Texto de R5</span><blockquote>“Si una sesión tiene un reporte grave pendiente de revisión, el sistema pausa sus nuevas invitaciones e incorporaciones y deriva el caso a moderación humana sin resolver automáticamente la sanción.”</blockquote></div>
+      </section>
+
+      <section class="flow-section second-flow section-shell" id="flujo-busqueda" aria-labelledby="busqueda-title">
+        <div class="flow-heading"><div><h2 id="busqueda-title">Sin coincidencias.<br><span>El filtro lo elegís vos.</span></h2><p class="flow-type search-type"><span class="rule-chip">R6</span> BÚSQUEDA Y COMPATIBILIDAD</p></div><p class="flow-summary">La búsqueda conserva los filtros del jugador y excluye las sesiones pausadas.</p></div>
+        <article class="flow-card flow-card--search" aria-label="Diagrama del flujo de búsqueda para la sentencia R6">
+          <div class="flow-card-head"><span>RECORRIDO 02 <i>—</i> BÚSQUEDA DE EQUIPO</span><span class="flow-card-id">R6 / S12-C</span></div>
+          <div class="flowchart search-flowchart">
+            <div class="flow-step start-step"><span class="node-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="m14 14 5 5"/></svg></span><div><small>INICIO</small><strong>Un jugador busca<br>compañeros</strong></div><span class="step-number">01</span></div>
+            <div class="connector"><span></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v10m0 0 4-4m-4 4-4-4"/></svg></div>
+            <div class="flow-step input-step"><span class="node-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v12H5zM8 10h8M8 14h5"/><path d="m16 18 2 2 4-5"/></svg></span><div><small>DATOS DE ENTRADA</small><strong>Estado habilitado, filtros y sesiones activas</strong></div><span class="step-number">02</span></div>
+            <div class="connector"><span></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v10m0 0 4-4m-4 4-4-4"/></svg></div>
+            <div class="decision-wrap"><div class="decision"><small>DECISIÓN 1</small><strong>¿Está habilitado<br>y buscando?</strong></div></div>
+            <div class="branch-labels"><span>SÍ <i>· consultar opciones</i></span><span>NO <i>· no buscar todavía</i></span></div>
+            <div class="branches search-branches">
+              <div class="branch yes-branch"><div class="branch-connector"></div><div class="branch-card"><span class="branch-tag">SÍ · BUSCAR COINCIDENCIAS</span><div class="branch-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="m14 14 5 5"/></svg></span><div><small></small><strong>Comparar filtros con sesiones activas</strong><p>Excluir sesiones pausadas y mostrar solo opciones compatibles.</p></div></div><div class="mini-decision"><span>¿Hay opciones compatibles?</span><span class="mini-arrow"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v10m0 0 4-4m-4 4-4-4"/></svg></span></div><div class="mini-outcomes"><div><small>SÍ</small><strong>Mostrar opciones compatibles</strong><p>Sesiones activas que respetan los filtros.</p></div><div class="empty-outcome"><small>NO</small><strong>Informar que no hay resultados</strong><p>Ofrecer ajustar los filtros, sin cambiarlos por su cuenta.</p></div></div><span class="outcome">RESULTADO · EL JUGADOR ELIGE EL PRÓXIMO PASO</span></div></div>
+              <div class="branch no-branch"><div class="branch-connector"></div><div class="branch-card"><span class="branch-tag muted-tag">NO · Esperar</span><div class="branch-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><div><small>ESPERAR</small><strong>No consultar ni alterar filtros</strong><p>No buscar hasta que el jugador esté habilitado y lo solicite.</p></div></div><span class="outcome">RESULTADO · SIN BÚSQUEDA ACTIVA</span></div></div>
+            </div>
+          </div>
+          <details class="flow-details"><summary><span>Ver detalle de R6</span><span class="details-toggle" aria-hidden="true">+</span></summary><div class="details-content"><div><h3>Qué necesita</h3><p>Estado de habilitación del jugador, confirmación de que inició una búsqueda, sus filtros actuales y las sesiones disponibles que pueden compararse.</p></div><div><h3>Si hay coincidencias</h3><p>Propuesta del equipo: mostrar únicamente sesiones activas que coinciden con los filtros. Las sesiones pausadas por moderación no cuentan como disponibles.</p></div><div><h3>Si no hay coincidencias</h3><p>Informar que la búsqueda no encontró resultados y ofrecer cambiar filtros. El jugador conserva el control: ningún filtro se modifica sin su decisión.</p></div><div class="detail-callout"><strong>Decisión del equipo</strong><span>Mostrar coincidencias activas cuando sí existan y esperar cuando no haya una búsqueda habilitada son respuestas de diseño; la sentencia define el caso sin resultados.</span></div></div></details>
+        </article>
+        <div class="original-rule"><span class="rule-label">Texto de R6</span><blockquote>“Si un jugador habilitado está buscando compañeros y no encuentra opciones compatibles, el sistema informa que no hay resultados y ofrece ajustar los filtros sin cambiarlos por su cuenta; no presenta una sesión pausada como disponible.”</blockquote></div>
+      </section>
+
+      <section class="principles section-shell" aria-labelledby="principles-title">
+        <h2 id="principles-title">La regla marca el límite.<br><span>La interfaz muestra el camino.</span></h2>
+        <div class="principle-grid"><div><span class="principle-mark" aria-hidden="true"></span><h3>Sin sanciones automáticas</h3><p>El sistema pausa y deriva. Una persona revisa y toma la decisión.</p></div><div><span class="principle-mark" aria-hidden="true"></span><h3>Sin filtros impuestos</h3><p>La propuesta informa opciones; el jugador decide si quiere cambiar su búsqueda.</p></div><div><span class="principle-mark" aria-hidden="true"></span><h3>Sin sesiones pausadas</h3><p>Una sesión en revisión no aparece como disponible para nuevos compañeros.</p></div></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><a class="footer-brand" href="#inicio">V<span>·</span>V</a><div><strong>VALOVIBES</strong><p>Propuesta académica · Grupo 14 · IFTS 29 · 2026</p></div><a class="back-top" href="#inicio">VOLVER ARRIBA <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3m0 0L4 7m4-4 4 4"/></svg></a></footer>
+    <noscript><p class="noscript-note">Los recorridos y desplegables están disponibles sin JavaScript.</p></noscript>
+  </body>
+</html>
