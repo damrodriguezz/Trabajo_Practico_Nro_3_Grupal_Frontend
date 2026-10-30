@@ -11,6 +11,8 @@
 
 > **Dos reglas, dos recorridos.** Una propuesta para cuidar las partidas y ayudar a cada jugador a encontrar su próximo equipo.
 
+🌐 **Sitio publicado:** [ValoVibes · Grupo 14](https://trabajo-practico-nro3-grupal-frontend.vercel.app/)
+
 ValoVibes conecta jugadores de Valorant con compañeros compatibles y coordina invitaciones. Esta landing explica cómo podrían aplicarse dos sentencias de moderación y búsqueda dentro del servicio.
 
 ## 🧭 La propuesta
