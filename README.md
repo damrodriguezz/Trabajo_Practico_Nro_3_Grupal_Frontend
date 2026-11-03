@@ -126,10 +126,11 @@ Revisa la lectura en desktop y móvil. Detecta exceso de rótulos pequeños y re
 | Aplicación | Modelo | Uso en el trabajo |
 | --- | --- | --- |
 | **Codex para escritorio** | **GPT-6** | Analizar la consigna, organizar la propuesta R5/R6, crear y editar la landing en HTML, CSS y JavaScript, y redactar esta documentación. |
+| **Copilot SDK en VS Code** | **No especificado** | Iterar sobre las simulaciones R5/R6 y mejorar la presentación responsive de los diagramas y controles, a partir de las observaciones y pruebas del equipo. |
 
 ### Construcción agéntica y aportes del grupo
 
-Codex recibió la consigna del TP3 y la asignación de **ValoVibes, grupo 14, S12-C**. A partir de ese material, el agente revisó las sentencias, propuso los recorridos, generó los archivos del sitio e incorporó los cambios solicitados durante las revisiones. El grupo aportó la dirección del proyecto, indicó qué aspectos quería mejorar y evaluó cada resultado para orientar la siguiente iteración.
+Codex recibió la consigna del TP3 y la asignación de **ValoVibes, grupo 14, S12-C**. A partir de ese material, el agente revisó las sentencias, propuso los recorridos, generó los archivos del sitio e incorporó los cambios solicitados durante las revisiones. En una etapa posterior, se usó **Copilot SDK en VS Code** para iterar sobre las simulaciones y los diagramas a partir de las observaciones del equipo. El grupo aportó la dirección del proyecto, indicó qué aspectos quería mejorar y evaluó cada resultado para orientar la siguiente iteración.
 
 La distribución de roles cubre coordinación y revisión general, análisis de R5, análisis de R6, revisión visual y de navegación, y documentación. La revisión cruzada muestra cómo registrar una observación y una mejora concreta.
 
@@ -139,6 +140,7 @@ La distribución de roles cubre coordinación y revisión general, análisis de 
 2. **Primer pedido de mejora:** el grupo pidió un diseño más moderno y original. Después señaló que la paleta beige no tenía coherencia, los diagramas se veían mal y los textos de lectura eran pequeños.
 3. **Corrección solicitada:** conservar el amarillo, ordenar los flujos, mejorar la legibilidad y quitar elementos visuales repetidos. En otras revisiones, el grupo pidió reducir las tarjetas, modernizar el menú, integrar el bloque de presentación al fondo de la página, retirar la línea y la leyenda bajo el hero y mostrar el grupo 14 en el encabezado.
 4. **Qué cambió y por qué:** se ajustaron proporciones y tamaños de texto; se redujeron recuadros, rótulos y separadores; se actualizó el menú con una marca para la sección activa; se integró la presentación al fondo general; y se colocó **IFTS 29 · Grupo 14** bajo el nombre de ValoVibes. Estos cambios buscan dar más jerarquía a los recorridos y reducir el ruido visual sin quitar la información necesaria para entender R5 y R6.
+5. **Simulaciones y responsive:** se ajustaron los diagramas R5/R6 para que las ramas SÍ/NO y sus flechas queden alineadas y conectadas, y para que el rombo y el flujo se adapten al ancho de escritorio, tablet y celular. También se limitó el ancho de los menús de filtros y se centró la decisión «¿Hay opciones compatibles?» con su flecha debajo. Se verificaron los recorridos simulados y la presentación en distintos anchos de pantalla.
 
 El equipo también indicó que la segunda frase del título de R6 no necesitaba otro color ni un peso tipográfico distinto; se dejó en negro, como la primera. Las respuestas que amplían lo definido por las sentencias se identifican en la landing como decisiones de diseño del equipo.
 

@@ -6,6 +6,163 @@ document.querySelectorAll('.flow-details').forEach((details) => {
   });
 });
 
+const customSelects = [...document.querySelectorAll('.simulator-fields select')].map((select) => {
+  const label = select.closest('label');
+  const control = document.createElement('span');
+  const trigger = document.createElement('button');
+  const menu = document.createElement('span');
+  const listId = `${select.name}-options`;
+  const labelText = label.firstChild.textContent.trim();
+  let typeahead = '';
+  let typeaheadTimer;
+
+  control.className = 'select-control';
+  trigger.className = 'select-trigger';
+  trigger.type = 'button';
+  trigger.setAttribute('aria-label', `${labelText}: ${select.selectedOptions[0].textContent}`);
+  trigger.setAttribute('aria-haspopup', 'listbox');
+  trigger.setAttribute('aria-expanded', 'false');
+  trigger.setAttribute('aria-controls', listId);
+
+  menu.className = 'select-options';
+  menu.id = listId;
+  menu.setAttribute('role', 'listbox');
+  menu.setAttribute('aria-label', labelText);
+  menu.hidden = true;
+
+  const selectedText = document.createElement('span');
+  selectedText.className = 'select-value';
+  trigger.append(selectedText);
+  const chevron = document.createElement('span');
+  chevron.className = 'select-chevron';
+  chevron.setAttribute('aria-hidden', 'true');
+  trigger.append(chevron);
+
+  const syncValue = () => {
+    const selectedOption = select.selectedOptions[0];
+    selectedText.textContent = selectedOption.textContent;
+    trigger.setAttribute('aria-label', `${labelText}: ${selectedOption.textContent}`);
+    menu.querySelectorAll('[role="option"]').forEach((option) => {
+      option.setAttribute('aria-selected', String(option.dataset.value === select.value));
+    });
+  };
+
+  const close = (returnFocus = false) => {
+    menu.hidden = true;
+    trigger.setAttribute('aria-expanded', 'false');
+    control.classList.remove('is-open', 'opens-up');
+    if (returnFocus) trigger.focus();
+  };
+
+  const open = () => {
+    menu.hidden = false;
+    trigger.setAttribute('aria-expanded', 'true');
+    control.classList.add('is-open');
+    const triggerRect = trigger.getBoundingClientRect();
+    const menuHeight = Math.min(menu.scrollHeight, 240);
+    const spaceBelow = window.innerHeight - triggerRect.bottom - 12;
+    const spaceAbove = triggerRect.top - 12;
+    const opensUp = spaceBelow < menuHeight && spaceAbove > spaceBelow;
+    const availableSpace = Math.max(0, Math.min(240, opensUp ? spaceAbove : spaceBelow));
+
+    control.classList.toggle('opens-up', opensUp);
+    menu.style.left = `${Math.max(8, Math.min(triggerRect.left, window.innerWidth - triggerRect.width - 8))}px`;
+    menu.style.width = `${Math.min(triggerRect.width, window.innerWidth - 16)}px`;
+    menu.style.maxHeight = `${availableSpace}px`;
+    menu.style.top = opensUp ? 'auto' : `${triggerRect.bottom + 4}px`;
+    menu.style.bottom = opensUp ? `${window.innerHeight - triggerRect.top + 4}px` : 'auto';
+  };
+
+  select.parentNode.insertBefore(control, select);
+  control.append(select, trigger, menu);
+  select.classList.add('select-native');
+  select.tabIndex = -1;
+  select.setAttribute('aria-hidden', 'true');
+
+  [...select.options].forEach((option) => {
+    const item = document.createElement('button');
+    item.className = 'select-option';
+    item.type = 'button';
+    item.setAttribute('role', 'option');
+    item.dataset.value = option.value;
+    item.textContent = option.textContent;
+    item.addEventListener('click', () => {
+      select.value = option.value;
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+      close(true);
+    });
+    menu.append(item);
+  });
+
+  trigger.addEventListener('click', () => {
+    if (menu.hidden) open();
+    else close();
+  });
+
+  trigger.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault();
+      open();
+      const selectedOption = menu.querySelector('[aria-selected="true"]');
+      (selectedOption || menu.querySelector('.select-option'))?.focus();
+    }
+  });
+
+  menu.addEventListener('keydown', (event) => {
+    const options = [...menu.querySelectorAll('.select-option')];
+    const currentIndex = options.indexOf(document.activeElement);
+    let nextIndex = currentIndex;
+
+    if (event.key === 'ArrowDown') nextIndex = (currentIndex + 1) % options.length;
+    else if (event.key === 'ArrowUp') nextIndex = (currentIndex - 1 + options.length) % options.length;
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = options.length - 1;
+    else if (event.key === 'Escape') {
+      event.preventDefault();
+      close(true);
+      return;
+    } else if (event.key.length === 1 && !event.ctrlKey && !event.altKey && !event.metaKey) {
+      typeahead += event.key.toLocaleLowerCase();
+      window.clearTimeout(typeaheadTimer);
+      typeaheadTimer = window.setTimeout(() => { typeahead = ''; }, 500);
+      const match = options.find((option) => option.textContent.toLocaleLowerCase().startsWith(typeahead));
+      if (match) {
+        event.preventDefault();
+        match.focus();
+      }
+      return;
+    } else {
+      return;
+    }
+
+    event.preventDefault();
+    options[nextIndex]?.focus();
+  });
+
+  menu.addEventListener('focusout', (event) => {
+    if (!control.contains(event.relatedTarget) && !menu.hidden) close();
+  });
+
+  select.addEventListener('change', syncValue);
+  syncValue();
+  return { control, trigger, menu, close };
+});
+
+document.addEventListener('pointerdown', (event) => {
+  customSelects.forEach(({ control, close }) => {
+    if (!control.contains(event.target)) close();
+  });
+});
+
+window.addEventListener('scroll', (event) => {
+  if (customSelects.some(({ menu }) => menu === event.target)) return;
+  customSelects.forEach(({ close }) => close());
+}, true);
+
+window.addEventListener('resize', () => {
+  customSelects.forEach(({ close }) => close());
+});
+
 function highlightPath(section, path, outcomePath) {
   section.querySelectorAll('.is-active').forEach((element) => {
     element.classList.remove('is-active');
@@ -102,7 +259,7 @@ searchForm?.addEventListener('submit', (event) => {
 });
 
 searchForm?.querySelector('.simulator-adjust')?.addEventListener('click', () => {
-  searchForm.querySelector('[name="role"]').focus();
+  searchForm.querySelector('[name="role"]').closest('.select-control')?.querySelector('.select-trigger').focus();
 });
 
 const navLinks = [...document.querySelectorAll('.site-header nav a')];
