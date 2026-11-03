@@ -13,7 +13,7 @@
 
 🌐 **Sitio publicado:** [ValoVibes · Grupo 14](https://trabajo-practico-nro3-grupal-frontend.vercel.app/)
 
-ValoVibes conecta jugadores de Valorant con compañeros compatibles y coordina invitaciones. Esta landing explica cómo podrían aplicarse dos sentencias de moderación y búsqueda dentro del servicio.
+ValoVibes conecta jugadores de Valorant con compañeros compatibles y coordina invitaciones. Esta landing presenta dos reglas de moderación y búsqueda, sus diagramas de flujo y simulaciones interactivas con datos de ejemplo.
 
 ## 🧭 La propuesta
 
@@ -37,36 +37,48 @@ ValoVibes conecta jugadores de Valorant con compañeros compatibles y coordina i
 
 La sentencia R6 define el caso sin resultados. La presentación de coincidencias activas y la espera cuando no hay una búsqueda habilitada son decisiones de diseño del equipo.
 
+## 🧪 Simulaciones
+
+Las simulaciones permiten probar las condiciones de R5 y R6 desde la página, sin cuenta ni conexión a un servicio:
+
+- **R5:** elegí si el reporte es grave y si sigue pendiente de revisión. Si se cumplen ambas condiciones, se muestra la pausa de invitaciones e incorporaciones y la derivación a moderación humana, sin sanción automática. Si no, se aclara que la sentencia no define ese caso.
+- **R6:** elegí si el jugador está habilitado y los filtros de rol y región. La búsqueda compara esos filtros con perfiles ficticios locales, excluye siempre las sesiones pausadas y muestra las coincidencias o informa que no hay resultados.
+- **Control del jugador:** ante una búsqueda sin coincidencias, la interfaz ofrece enfocar los filtros para que el jugador decida si quiere ajustarlos; no los cambia automáticamente.
+
+Los perfiles y las respuestas son una demostración de la lógica en el navegador; no representan jugadores reales ni consultan o modifican sesiones de un servidor.
+
 ## 🎨 Diseño y experiencia
 
 - **Identidad:** azul noche y negro para las superficies; amarillo para destacar acciones y decisiones; blanco frío para la lectura y coral para el recorrido de moderación.
-- **Jerarquía:** titulares grandes, explicaciones directas y diagramas que muestran primero la condición y luego sus posibles resultados.
+- **Jerarquía:** titulares grandes, explicaciones directas y diagramas con decisiones, ramas SÍ/NO y conectores visibles. Al probar un escenario, se resalta el camino elegido.
 - **Navegación:** menú superior con indicador de sección activa para ubicar el recorrido mientras se avanza por la página.
 - **Adaptación:** la composición se reorganiza para pantallas pequeñas y apila las ramas de los diagramas en móvil.
-- **Accesibilidad:** navegación por teclado, enlace para saltar al contenido y respeto por la preferencia de movimiento reducido del dispositivo.
+- **Accesibilidad:** controles con etiquetas, resultados anunciados por lectores de pantalla, navegación por teclado, enlace para saltar al contenido y respeto por la preferencia de movimiento reducido del dispositivo.
 
 ## 🛠️ Tecnologías
 
 | Tecnología | Uso |
 | --- | --- |
-| **HTML5** | Estructura semántica de la landing, los recorridos y sus detalles. |
-| **CSS3** | Paleta, tipografía, diagramas, diseño adaptable, transiciones y estados visuales. |
-| **JavaScript** | Desplegables de R5/R6 e indicador de sección activa en el menú. |
+| **HTML5** | Estructura semántica de la landing, los recorridos, los formularios y sus detalles. |
+| **CSS3** | Paleta, tipografía, diagramas, diseño adaptable, conectores, transiciones y resaltado de caminos. |
+| **JavaScript** | Simulación de las reglas R5/R6 con datos de ejemplo, resultados accesibles, desplegables e indicador de sección activa. |
 | **Google Fonts** | Barlow Condensed para titulares y Manrope para lectura e interfaz. |
 
-El proyecto está hecho con tecnologías web nativas. No usa framework, paquetes, backend ni servicios externos para sus recorridos.
+El proyecto está hecho con tecnologías web nativas. No usa framework ni paquetes. Las simulaciones se ejecutan en el navegador con datos locales: no hay backend, inicio de sesión ni conexión a partidas.
 
 ## ⚙️ Interacciones
 
 - Los enlaces del menú llevan a la presentación, moderación y búsqueda.
 - El menú resalta la sección visible durante el desplazamiento.
 - **Ver detalle de R5** y **Ver detalle de R6** despliegan datos de entrada, casos y decisiones de diseño.
-- Los recorridos pueden leerse sin iniciar sesión ni conectar una cuenta de juego.
+- **Probar escenario** en R5 permite recorrer los casos con y sin reporte grave pendiente.
+- **Buscar coincidencias** en R6 permite activar o desactivar la búsqueda y filtrar los perfiles de ejemplo por rol y región. Si no hay resultados, **Ajustar mis filtros** lleva el foco a los controles sin cambiar sus valores.
+- Los diagramas y sus detalles siguen disponibles sin JavaScript; las simulaciones requieren JavaScript.
 
 ## 🚀 Cómo abrirlo
 
 - **Sitio publicado:** [ValoVibes · Grupo 14](https://trabajo-practico-nro3-grupal-frontend.vercel.app/)
-- **En tu computadora:** descargá el proyecto y abrí `index.html` en un navegador moderno.
+- **En tu computadora:** descargá el proyecto y abrí `index.html` en un navegador moderno con JavaScript habilitado para usar las simulaciones.
 
 ## 📁 Estructura del proyecto
 
@@ -74,7 +86,7 @@ El proyecto está hecho con tecnologías web nativas. No usa framework, paquetes
 .
 ├── index.html                 # Landing y recorridos R5/R6
 ├── styles.css                 # Estilos, paleta y adaptación responsive
-├── script.js                  # Navegación activa y paneles de detalle
+├── script.js                  # Simulaciones, navegación activa y paneles de detalle
 ├── assets/
 │   └── valovibes-logo.png     # Logo de ValoVibes
 └── README.md                  # Documentación del proyecto

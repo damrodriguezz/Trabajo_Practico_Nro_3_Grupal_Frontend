@@ -65,12 +65,36 @@
             <div class="flow-step input-step"><span class="node-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h9"/><circle cx="18" cy="17" r="3"/></svg></span><div><small>DATOS DE ENTRADA</small><strong>Sesión, gravedad del reporte y estado de revisión</strong></div><span class="step-number">02</span></div>
             <div class="connector"><span></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v10m0 0 4-4m-4 4-4-4"/></svg></div>
             <div class="decision-wrap"><div class="decision"><small>DECISIÓN</small><strong>¿Hay un reporte grave<br>pendiente de revisión?</strong></div></div>
-            <div class="branch-labels"><span>SÍ <i>· condición cumplida</i></span><span>NO <i>· condición no cumplida</i></span></div>
+            <div class="branch-labels"><span data-path-label="yes">SÍ <i>· condición cumplida</i></span><span data-path-label="no">NO <i>· condición no cumplida</i></span></div>
             <div class="branches">
-              <div class="branch yes-branch"><div class="branch-connector"></div><div class="branch-card"><span class="branch-tag">SÍ · Proteger la sesión</span><div class="branch-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14m8-14v14"/></svg></span><div><small></small><strong>Pausar nuevas invitaciones e incorporaciones</strong></div></div><div class="branch-divider"></div><div class="branch-action human-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.5 3.1-5.2 7-5.2s6.2 1.7 7 5.2"/></svg></span><div><small></small><strong>Moderación humana</strong><p>Una persona revisa el reporte. El sistema no aplica sanciones.</p></div></div><span class="outcome">RESULTADO · SESIÓN EN ESPERA DE REVISIÓN</span></div></div>
-              <div class="branch no-branch"><div class="branch-connector"></div><div class="branch-card"><span class="branch-tag muted-tag">NO · Continuar el flujo</span><div class="branch-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><div><small>CONTINUIDAD PROPUESTA</small><strong>La sesión sigue su recorrido habitual</strong><p>La sentencia no define este caso; la continuidad es una decisión de diseño.</p></div></div><span class="outcome">RESULTADO · SIN BLOQUEO POR ESTA REGLA</span></div></div>
+              <div class="branch yes-branch" data-path="yes"><div class="branch-connector"></div><div class="branch-card"><span class="branch-tag">SÍ · Proteger la sesión</span><div class="branch-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14m8-14v14"/></svg></span><div><small></small><strong>Pausar nuevas invitaciones e incorporaciones</strong></div></div><div class="branch-divider"></div><div class="branch-action human-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.5 3.1-5.2 7-5.2s6.2 1.7 7 5.2"/></svg></span><div><small></small><strong>Moderación humana</strong><p>Una persona revisa el reporte. El sistema no aplica sanciones.</p></div></div><span class="outcome">RESULTADO · SESIÓN EN ESPERA DE REVISIÓN</span></div></div>
+              <div class="branch no-branch" data-path="no"><div class="branch-connector"></div><div class="branch-card"><span class="branch-tag muted-tag">NO · Continuar el flujo</span><div class="branch-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><div><small>CONTINUIDAD PROPUESTA</small><strong>La sesión sigue su recorrido habitual</strong><p>La sentencia no define este caso; la continuidad es una decisión de diseño.</p></div></div><span class="outcome">RESULTADO · SIN BLOQUEO POR ESTA REGLA</span></div></div>
             </div>
           </div>
+          <form class="simulator" id="simulation-r5" aria-labelledby="simulation-r5-title">
+            <div class="simulator-heading">
+              <h3 id="simulation-r5-title">Probá un caso de moderación</h3>
+              <p>Elegí los datos del reporte y observá qué propone la regla.</p>
+            </div>
+            <div class="simulator-fields">
+              <label>¿El reporte es grave?
+                <select name="severity">
+                  <option value="grave">Sí, es grave</option>
+                  <option value="not-grave">No es grave</option>
+                </select>
+              </label>
+              <label>Estado de revisión
+                <select name="review">
+                  <option value="pending">Pendiente de revisión</option>
+                  <option value="reviewed">Ya fue revisado</option>
+                </select>
+              </label>
+              <button class="simulator-submit" type="submit">Probar escenario</button>
+            </div>
+            <div class="simulation-result" aria-live="polite" hidden>
+              <p data-result-message></p>
+            </div>
+          </form>
           <details class="flow-details"><summary><span>Ver detalle de R5</span><span class="details-toggle" aria-hidden="true">+</span></summary><div class="details-content"><div><h3>Qué necesita</h3><p>Identificador de la sesión, nivel del reporte y confirmación de que todavía está pendiente de revisión.</p></div><div><h3>Si cumple</h3><p>Se detienen nuevas invitaciones e incorporaciones y el reporte se deriva a moderación humana. Una sanción nunca se resuelve automáticamente.</p></div><div><h3>Si no cumple</h3><p>Ejemplo: reporte pendiente pero no grave. La sentencia no define la respuesta; esta propuesta deja que la sesión siga el recorrido habitual bajo las demás reglas.</p></div><div class="detail-callout"><strong>Decisión del equipo</strong><span>La continuidad del flujo habitual es una alternativa de diseño para el “no”; la sentencia sólo establece qué hacer cuando la condición se cumple.</span></div></div></details>
         </article>
         <div class="original-rule"><span class="rule-label">Texto de R5</span><blockquote>“Si una sesión tiene un reporte grave pendiente de revisión, el sistema pausa sus nuevas invitaciones e incorporaciones y deriva el caso a moderación humana sin resolver automáticamente la sanción.”</blockquote></div>
@@ -86,12 +110,43 @@
             <div class="flow-step input-step"><span class="node-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v12H5zM8 10h8M8 14h5"/><path d="m16 18 2 2 4-5"/></svg></span><div><small>DATOS DE ENTRADA</small><strong>Estado habilitado, filtros y sesiones activas</strong></div><span class="step-number">02</span></div>
             <div class="connector"><span></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v10m0 0 4-4m-4 4-4-4"/></svg></div>
             <div class="decision-wrap"><div class="decision"><small>DECISIÓN 1</small><strong>¿Está habilitado<br>y buscando?</strong></div></div>
-            <div class="branch-labels"><span>SÍ <i>· consultar opciones</i></span><span>NO <i>· no buscar todavía</i></span></div>
+            <div class="branch-labels"><span data-path-label="yes">SÍ <i>· consultar opciones</i></span><span data-path-label="no">NO <i>· no buscar todavía</i></span></div>
             <div class="branches search-branches">
-              <div class="branch yes-branch"><div class="branch-connector"></div><div class="branch-card"><span class="branch-tag">SÍ · BUSCAR COINCIDENCIAS</span><div class="branch-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="m14 14 5 5"/></svg></span><div><small></small><strong>Comparar filtros con sesiones activas</strong><p>Excluir sesiones pausadas y mostrar solo opciones compatibles.</p></div></div><div class="mini-decision"><span>¿Hay opciones compatibles?</span><span class="mini-arrow"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v10m0 0 4-4m-4 4-4-4"/></svg></span></div><div class="mini-outcomes"><div><small>SÍ</small><strong>Mostrar opciones compatibles</strong><p>Sesiones activas que respetan los filtros.</p></div><div class="empty-outcome"><small>NO</small><strong>Informar que no hay resultados</strong><p>Ofrecer ajustar los filtros, sin cambiarlos por su cuenta.</p></div></div><span class="outcome">RESULTADO · EL JUGADOR ELIGE EL PRÓXIMO PASO</span></div></div>
-              <div class="branch no-branch"><div class="branch-connector"></div><div class="branch-card"><span class="branch-tag muted-tag">NO · Esperar</span><div class="branch-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><div><small>ESPERAR</small><strong>No consultar ni alterar filtros</strong><p>No buscar hasta que el jugador esté habilitado y lo solicite.</p></div></div><span class="outcome">RESULTADO · SIN BÚSQUEDA ACTIVA</span></div></div>
+              <div class="branch yes-branch" data-path="yes"><div class="branch-connector"></div><div class="branch-card"><span class="branch-tag">SÍ · BUSCAR COINCIDENCIAS</span><div class="branch-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="m14 14 5 5"/></svg></span><div><small></small><strong>Comparar filtros con sesiones activas</strong><p>Excluir sesiones pausadas y mostrar solo opciones compatibles.</p></div></div><div class="mini-decision"><span>¿Hay opciones compatibles?</span><span class="mini-arrow"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v10m0 0 4-4m-4 4-4-4"/></svg></span></div><div class="mini-outcomes"><div data-path="yes"><small>SÍ</small><strong>Mostrar opciones compatibles</strong><p>Sesiones activas que respetan los filtros.</p></div><div class="empty-outcome" data-path="no"><small>NO</small><strong>Informar que no hay resultados</strong><p>Ofrecer ajustar los filtros, sin cambiarlos por su cuenta.</p></div></div><span class="outcome">RESULTADO · EL JUGADOR ELIGE EL PRÓXIMO PASO</span></div></div>
+              <div class="branch no-branch" data-path="no"><div class="branch-connector"></div><div class="branch-card"><span class="branch-tag muted-tag">NO · Esperar</span><div class="branch-action"><span class="action-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5"/><circle cx="5" cy="12" r="2"/></svg></span><div><small>ESPERAR</small><strong>No consultar ni alterar filtros</strong><p>No buscar hasta que el jugador esté habilitado y lo solicite.</p></div></div><span class="outcome">RESULTADO · SIN BÚSQUEDA ACTIVA</span></div></div>
             </div>
           </div>
+          <form class="simulator" id="simulation-r6" aria-labelledby="simulation-r6-title">
+            <div class="simulator-heading">
+              <h3 id="simulation-r6-title">Probá una búsqueda de compañeros</h3>
+              <p>Los perfiles son ejemplos locales. Las sesiones pausadas nunca aparecen como disponibles.</p>
+            </div>
+            <div class="simulator-fields">
+              <label class="simulator-checkbox"><input name="enabled" type="checkbox" checked> Jugador habilitado y buscando</label>
+              <label>Rol buscado
+                <select name="role">
+                  <option value="any">Cualquier rol</option>
+                  <option value="Duelista">Duelista</option>
+                  <option value="Iniciador">Iniciador</option>
+                  <option value="Controlador">Controlador</option>
+                  <option value="Centinela">Centinela</option>
+                </select>
+              </label>
+              <label>Región
+                <select name="region">
+                  <option value="any">Cualquier región</option>
+                  <option value="LAS">LAS</option>
+                  <option value="BR">BR</option>
+                </select>
+              </label>
+              <button class="simulator-submit" type="submit">Buscar coincidencias</button>
+            </div>
+            <div class="simulation-result" aria-live="polite" hidden>
+              <p data-result-message></p>
+              <ul data-results-list hidden></ul>
+              <button class="simulator-adjust" type="button" hidden>Ajustar mis filtros</button>
+            </div>
+          </form>
           <details class="flow-details"><summary><span>Ver detalle de R6</span><span class="details-toggle" aria-hidden="true">+</span></summary><div class="details-content"><div><h3>Qué necesita</h3><p>Estado de habilitación del jugador, confirmación de que inició una búsqueda, sus filtros actuales y las sesiones disponibles que pueden compararse.</p></div><div><h3>Si hay coincidencias</h3><p>Propuesta del equipo: mostrar únicamente sesiones activas que coinciden con los filtros. Las sesiones pausadas por moderación no cuentan como disponibles.</p></div><div><h3>Si no hay coincidencias</h3><p>Informar que la búsqueda no encontró resultados y ofrecer cambiar filtros. El jugador conserva el control: ningún filtro se modifica sin su decisión.</p></div><div class="detail-callout"><strong>Decisión del equipo</strong><span>Mostrar coincidencias activas cuando sí existan y esperar cuando no haya una búsqueda habilitada son respuestas de diseño; la sentencia define el caso sin resultados.</span></div></div></details>
         </article>
         <div class="original-rule"><span class="rule-label">Texto de R6</span><blockquote>“Si un jugador habilitado está buscando compañeros y no encuentra opciones compatibles, el sistema informa que no hay resultados y ofrece ajustar los filtros sin cambiarlos por su cuenta; no presenta una sesión pausada como disponible.”</blockquote></div>
@@ -104,6 +159,6 @@
     </main>
 
     <footer class="site-footer"><a class="footer-brand" href="#inicio">V<span>·</span>V</a><div><strong>VALOVIBES</strong><p>Propuesta académica · Grupo 14 · IFTS 29 · 2026</p></div><a class="back-top" href="#inicio">VOLVER ARRIBA <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3m0 0L4 7m4-4 4 4"/></svg></a></footer>
-    <noscript><p class="noscript-note">Los recorridos y desplegables están disponibles sin JavaScript.</p></noscript>
+    <noscript><p class="noscript-note">Los diagramas y detalles pueden leerse sin JavaScript. Las simulaciones requieren JavaScript.</p></noscript>
   </body>
 </html>
